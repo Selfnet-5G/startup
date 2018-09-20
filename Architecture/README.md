@@ -23,13 +23,18 @@ This layer contains the applications that will enable the collection of data fro
 
 ### Components
 
+* **FlowT** - SDN Application compatible with OpenDaylight controller APIs to apply SON actuation forwarding rules in physical and virtual switches for selective flow mirroring, diversion and drop operations.
+
 ## SON Autonomic Layer
 
 This layer provides the mechanisms to provide network intelligence. The layer collects from the network pertinent information about the network behaviour, uses that information to diagnose the network condition, and decides what must be done to accomplish the system goals. It then guarantees the organised enforcement of the actions that are determined.
 
 ### Components
 
+* [App Catalogue](https://github.com/Selfnet-5G/app-catalogue) - The SELFNET onboarding service to register and upload individual Apps,  i.e. VNFs, PNFs, SDN-Apps and SDN Controller Apps.
+
 * [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Hosts and curates machine learning based elements of the Intelligence in the SELFNET Framework. It is interfacing with the Monitoring-, Aggregation Layers and TAL-Engine. This allows for complex system diagnosis and runtime generation of new symptoms – enabling the SELFNET framework to learn and evolve over time.
+
 * **TAL Engines** - This is a set of two components that are responsible for 
 enforcing the onboarded TAL scripts. One engine considered as TAL 
 connector is integrated with the Monitoring NBI interface for collecting 
@@ -73,6 +78,10 @@ instantiation of the PNF abstraction objects for every PNF entity
 registered. Finally, App Manager maintains an inventory per application 
 instance containing all the configurations applied as actuation requests 
 in the context of Autonomous Management.
+
+* **SELFNET VNFM** - The NFV Applications lifecycle management service compliant with ETSI NFV MANO principles and specifications.
+
+* **Service Inventory** - The SELFNET inventory function to store and maintain information related to end-to-end services, SDN, NFV and infrastructure resource instances in support of Service Orchestration logics.
 
 ## SON Access Layer
 
