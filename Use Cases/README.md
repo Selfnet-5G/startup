@@ -22,6 +22,12 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 * [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Generating new Symptom and reaction – SELFNET framework learns as a whole.
 
+* [Command & Control (C&C) Server](https://github.com/Selfnet-5G/Self-Protection-Botnet-Components) - Main component for starting-up a Zeus-based botnet in which recruiting real zombies that can be used to launch remote distributed cyber-attacks.
+
+* [HoneyNet VNF](https://github.com/Selfnet-5G/Self-Protection-Botnet-Components) - Actuator used to build a fully virtualized and personalized honeynet composed of fake zombies to emulate the real zombie's behaviour when requesting malicious actions to the botnet
+
+* **Snort VNF** - Sensor using a well-known Deep Packet Inspection (DPI) tool such as  Snort for low-level detection, extended with an output plugin to report  alerts in the IDMEF standard format
+
 ## Self-Healing
 
 ![SH](SH.jpg)
