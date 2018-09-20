@@ -56,7 +56,7 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 ## Composed Use Case
 
-![CUC](composed-uc-1.png)
+![CUC](composed-uc-2.jpg)
 
 This use case aims to provide a complex hybrid use case in which all the previous self-organising functionalities will be integrated and will inter-work together to present a complete scenario where the SELFNET Apps act vertically in solving problems in a coordinated fashion.
 
