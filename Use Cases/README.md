@@ -20,6 +20,8 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 ### Components
 
+* [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Generating new Symptom and reaction – SELFNET framework learns as a whole.
+
 ## Self-Healing
 
 ![SH](SH.jpg)
@@ -33,6 +35,8 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 * Infrastructure metrics and SLAs indicators to infer HoN metrics and implement context-aware decisions in 5G Control Plane.
 
 ### Components
+
+* [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Auto-encoder based profiling of VNFs – Diagnosis and mitigation of management plane issues.
 
 
 ## Self-Optimization
@@ -52,7 +56,7 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 ## Composed Use Case
 
-![CUC](composed-uc.png)
+![CUC](composed-uc-1.png)
 
 This use case aims to provide a complex hybrid use case in which all the previous self-organising functionalities will be integrated and will inter-work together to present a complete scenario where the SELFNET Apps act vertically in solving problems in a coordinated fashion.
 
