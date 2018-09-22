@@ -83,6 +83,12 @@ in the context of Autonomous Management.
 
 * **Service Inventory** - The SELFNET inventory function to store and maintain information related to end-to-end services, SDN, NFV and infrastructure resource instances in support of Service Orchestration logics.
 
+* [Topology Manager](https://github.com/Selfnet-5G/topology-manager)  - The Topology Manager provides an updated inventory of both physical and virtual resources available in the infrastructure. It carries out a continuous monitoring of the status of the resources and it is able to report migrations, creations, replacements, deletion and updations of both physical and virtual components. 
+
+* [LTE Topology Manager](https://github.com/Selfnet-5G/lte-topology-manager)  - The LTE Topology Manager provides an updated inventory of all the UEs connection to the LTE antennas of the infrastructures. It carries out a continuous monitoring of the status of the resources and it is able to report UE handovers, connections, reconnections and disconnection events. 
+
+* [Infrastructure Inventory Manager](https://github.com/Selfnet-5G/infrastructure-inventory-manager)  - The Infrastructure Inventory Manager is in change of storing in database the updated status of all the inventory of the resources of hte infrastructure. it includes physical and virtual machines togehter with UEs. It received the information form the LTE Topology Manager and the Topology Manager and stored it in the database keeping a control of the life-cycle of such components. 
+
 ## SON Access Layer
 
 This layer encompasses the interface functions that are exposed by the framework. Despite the fact that internal components may have specific interfaces for the particular scope of their functions, these components contribute to a general SON API that exposes all aspects of the autonomic framework, which are “used” by external actors, like Business Support Systems or Operational Support Systems.
