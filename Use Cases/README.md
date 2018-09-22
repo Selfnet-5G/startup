@@ -26,7 +26,12 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 * [HoneyNet VNF](https://github.com/Selfnet-5G/Self-Protection-Botnet-Components) - Actuator used to build a fully virtualized and personalized honeynet composed of fake zombies to emulate the real zombie's behaviour when requesting malicious actions to the botnet
 
+* [Flow Monitoring Agent](https://github.com/Selfnet-5G/flow-monitoring-agent) - This flow network sensor provides metrics related to all the flows passing trought a given set of network interfaces. These metrics are used in the autonomoic layer in order to infer behaviours over the network flows. This components is able to deal with double encapsultion in order to be ready for 5G flows in a multi-tenant infrastructure. 
+
 * **Snort VNF** - Sensor using a well-known Deep Packet Inspection (DPI) tool such as  Snort for low-level detection, extended with an output plugin to report  alerts in the IDMEF standard format
+
+
+
 
 ## Self-Healing
 
