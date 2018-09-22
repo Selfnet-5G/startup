@@ -64,6 +64,15 @@ SELFNET intends to provide Self-organising capabilities over 5G networks,
 
 ### Components
 
+* [Flow Monitoring Agent] (https://github.com/Selfnet-5G/flow-monitoring-agent) - This flow network sensor provides metrics related to all the flows passing trought a given set of network interfaces. These metrics are used in the autonomoic layer in order to infer behaviours over the video flows. This components is able to deal with double encapsultion in order to be ready for 5G flows in a multi-tenant infrastructure. 
+
+* [Primary Video Sensor] (https://github.com/Selfnet-5G/primary-video-sensor) - This DPI flow network sensor provides metadata from the videos that are passing on the monitored network interfaces. This metadata is extract form the H265 bitstream in order to provide information to the cognitive layer about the video flows. 
+
+* [Video player] (https://github.com/Selfnet-5G/video-player) - This script is integrated with the well knwon GPAC video player in order to allow the automatic re-sclaing of the Video layer when a drop of a video layer happens. 
+
+
+
+
 
 ## Composed Use Case
 
@@ -73,3 +82,4 @@ This use case aims to provide a complex hybrid use case in which all the previou
 
 ### Components
 
+All the components of this use cases are the sum of the components of all the previous use cases described above. 
