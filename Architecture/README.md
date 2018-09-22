@@ -35,24 +35,7 @@ This layer provides the mechanisms to provide network intelligence. The layer co
 
 * [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Hosts and curates machine learning based elements of the Intelligence in the SELFNET Framework. It is interfacing with the Monitoring-, Aggregation Layers and TAL-Engine. This allows for complex system diagnosis and runtime generation of new symptoms – enabling the SELFNET framework to learn and evolve over time.
 
-* **TAL Engines** - This is a set of two components that are responsible for 
-enforcing the onboarded TAL scripts. One engine considered as TAL 
-connector is integrated with the Monitoring NBI interface for collecting 
-the foreseen by the TAL script alarms and metrics. This engine 
-instantiates separate objects per TAL  symptom in the role of 
-listeners/filters according to the TAL definitions. It produces symptom 
-structures that are forwarded to the main TAL Engine. The main TAL 
-engine maintains also different processing objects and spaces for every 
-TAL definition and processes the symptoms according to each TAL script. 
-For those scripts foreseeing Analyser processing a set of information 
-units is propagated to the Analyser and corresponding outputs are 
-collected. Either with Analyser involvement or without, the main TAL 
-engine applies a rule based lookup and creates Tactics to be forwarded 
-and processed by the Action Enforcer. TAL Engines support onboarding of 
-TAL scripts, inventory of discovered symptoms and related tactics along 
-with the feedback on the status of the deployment, options for pausing 
-and restarting a symptom processing as well as resetting of the 
-inventory and update or removal of the TAL scripts.
+* **TAL Engines** - This is a set of two components that are responsible for enforcing the onboarded TAL scripts. One engine considered as TAL connector is integrated with the Monitoring NBI interface for collecting the foreseen by the TAL script alarms and metrics. This engine instantiates separate objects per TAL  symptom in the role of listeners/filters according to the TAL definitions. It produces symptom structures that are forwarded to the main TAL Engine. The main TAL engine maintains also different processing objects and spaces for every TAL definition and processes the symptoms according to each TAL script. For those scripts foreseeing Analyser processing a set of information units is propagated to the Analyser and corresponding outputs are collected. Either with Analyser involvement or without, the main TAL engine applies a rule based lookup and creates Tactics to be forwarded and processed by the Action Enforcer. TAL Engines support onboarding of TAL scripts, inventory of discovered symptoms and related tactics along with the feedback on the status of the deployment, options for pausing and restarting a symptom processing as well as resetting of the inventory and update or removal of the TAL scripts.
 
 
 ## NFV Orchestration & Management Layer
