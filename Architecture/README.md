@@ -31,12 +31,36 @@ This layer provides the mechanisms to provide network intelligence. The layer co
 
 ### Components
 
+* [Action Enforcer](https://github.com/Selfnet-5G/action-enforcer) - It translates the tactics into a set of action plans for a certain use case to be afterwards enforced in the virtualized and physical network resources by the Orchestrator.
+
+* **Aggregation Configuration Manager** - Enforces the aggregation and threshold rules on-boarded on the Monitoring Catalog on the batch/real-time aggregation and threshold engines.
+
+* **Aggregation Engine** - The component responsible for processing the metrics collected from the infrastructure in a batch fashion and for storing the resulting aggregated metrics on the time-series database.
+
 * [App Catalogue](https://github.com/Selfnet-5G/app-catalogue) - The SELFNET onboarding service to register and upload individual Apps,  i.e. VNFs, PNFs, SDN-Apps and SDN Controller Apps.
 
 * [AIE](https://github.com/Selfnet-5G/Autonomic-Intelligence-Engine) - Hosts and curates machine learning based elements of the Intelligence in the SELFNET Framework. It is interfacing with the Monitoring-, Aggregation Layers and TAL-Engine. This allows for complex system diagnosis and runtime generation of new symptoms – enabling the SELFNET framework to learn and evolve over time.
 
+* **Ceilometer Transformer** - Transforms de the data published by Ceilometer taking the Raw Aggregation Data Model as a reference and publishes the transformed metrics on a Kafka message bus in order to be consumed by the Raw Data Loader.
+
+* **CEP Engine** - A component comprised of several Apache Storm topologies built to process events in a realtime fashion.
+
+* **Monasca** - A highly performant, scalable, reliable and fault-tolerant Monitoring as a Service (MONaaS) solution. For our purposes we only used a subset of the full Monasca architecture, namely:
+    - InfluxDB: A time-series database used to store the aggregated metrics produced by the Aggregtation Engine.
+    - Threshold Engine: responsible for analyzing the aggregated metrics and trigger alarms for the crossed thresholds;
+    -  Notification Engine:  responsible for issuing notifications for the triggered alarms which, under the scope of this project, are published in to a Kafka message bus following the Raw Aggregation Data Model format through a plugin specificaly designed for this purpose.
+
+* *Monitoring Catalog* - Stores the aggregation and threshold rules to be enforced on the batch/real-time aggregation and threshold engines.
+
+* [Raw Data Loader](https://github.com/Selfnet-5G/Raw-Data-Loader) - Consumes the data records that are published into a Kafka message bus and transforms them in such a way that they can be inserted into a Cassandra DB.
+
+* **Service Catalog** - The Service Catalog holds detailed information about each service, and the relations to the entities that compose it, and also the operations that allow all services to be instantiated and configured.
+
+* **Service Orchestrator** - The Service Orchestrator is responsible for end-to-end services lifecycle management, it ensures that all actions on a service are deterministic.
+
 * **TAL Engines** - This is a set of two components that are responsible for enforcing the onboarded TAL scripts. One engine considered as TAL connector is integrated with the Monitoring NBI interface for collecting the foreseen by the TAL script alarms and metrics. This engine instantiates separate objects per TAL  symptom in the role of listeners/filters according to the TAL definitions. It produces symptom structures that are forwarded to the main TAL Engine. The main TAL engine maintains also different processing objects and spaces for every TAL definition and processes the symptoms according to each TAL script. For those scripts foreseeing Analyser processing a set of information units is propagated to the Analyser and corresponding outputs are collected. Either with Analyser involvement or without, the main TAL engine applies a rule based lookup and creates Tactics to be forwarded and processed by the Action Enforcer. TAL Engines support onboarding of TAL scripts, inventory of discovered symptoms and related tactics along with the feedback on the status of the deployment, options for pausing and restarting a symptom processing as well as resetting of the inventory and update or removal of the TAL scripts.
 
+* [Zabbix](https://github.com/Selfnet-5G/zabbix-sensor) - It measures the network latency by collecting the Response Time data that is coming from Zabbix Agents, then it makes a report to be sent to the aggregation part via Kafka.
 
 ## NFV Orchestration & Management Layer
 
@@ -62,15 +86,15 @@ registered. Finally, App Manager maintains an inventory per application
 instance containing all the configurations applied as actuation requests 
 in the context of Autonomous Management.
 
-* **SELFNET VNFM** - The NFV Applications lifecycle management service compliant with ETSI NFV MANO principles and specifications.
-
-* **Service Inventory** - The SELFNET inventory function to store and maintain information related to end-to-end services, SDN, NFV and infrastructure resource instances in support of Service Orchestration logics.
-
-* [Topology Manager](https://github.com/Selfnet-5G/topology-manager)  - The Topology Manager provides an updated inventory of both physical and virtual resources available in the infrastructure. It carries out a continuous monitoring of the status of the resources and it is able to report migrations, creations, replacements, deletion and updations of both physical and virtual components. 
+* [Infrastructure Inventory Manager](https://github.com/Selfnet-5G/infrastructure-inventory-manager)  - The Infrastructure Inventory Manager is in change of storing in database the updated status of all the inventory of the resources of hte infrastructure. it includes physical and virtual machines togehter with UEs. It received the information form the LTE Topology Manager and the Topology Manager and stored it in the database keeping a control of the life-cycle of such components. 
 
 * [LTE Topology Manager](https://github.com/Selfnet-5G/lte-topology-manager)  - The LTE Topology Manager provides an updated inventory of all the UEs connection to the LTE antennas of the infrastructures. It carries out a continuous monitoring of the status of the resources and it is able to report UE handovers, connections, reconnections and disconnection events. 
 
-* [Infrastructure Inventory Manager](https://github.com/Selfnet-5G/infrastructure-inventory-manager)  - The Infrastructure Inventory Manager is in change of storing in database the updated status of all the inventory of the resources of hte infrastructure. it includes physical and virtual machines togehter with UEs. It received the information form the LTE Topology Manager and the Topology Manager and stored it in the database keeping a control of the life-cycle of such components. 
+* [Topology Manager](https://github.com/Selfnet-5G/topology-manager)  - The Topology Manager provides an updated inventory of both physical and virtual resources available in the infrastructure. It carries out a continuous monitoring of the status of the resources and it is able to report migrations, creations, replacements, deletion and updations of both physical and virtual components. 
+
+* **SELFNET VNFM** - The NFV Applications lifecycle management service compliant with ETSI NFV MANO principles and specifications.
+
+* **Service Inventory** - The SELFNET inventory function to store and maintain information related to end-to-end services, SDN, NFV and infrastructure resource instances in support of Service Orchestration logics.
 
 ## SON Access Layer
 
@@ -79,8 +103,8 @@ A GUI is also provided on top of the SON API where a network administrator can i
 
 ### Components
 
-* [API Broker](https://github.com/Selfnet-5G/NBI) - Acting as the SELFNET's Northbound interface the API broker collects information from other SELFNET components
-* [GUI](https://github.com/Selfnet-5G/GUI) - SELFNET's component that present a visual representation of SELFNET's status
+* [API Broker](https://github.com/Selfnet-5G/NBI) - Acting as the SELFNET's Northbound interface the API broker collects information from other SELFNET components.
+* [GUI](https://github.com/Selfnet-5G/GUI) - SELFNET's component that present a visual representation of SELFNET's status.
 
 ## Use Cases
 
