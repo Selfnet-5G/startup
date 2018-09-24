@@ -50,7 +50,7 @@ This layer provides the mechanisms to provide network intelligence. The layer co
     - Threshold Engine: responsible for analyzing the aggregated metrics and trigger alarms for the crossed thresholds;
     -  Notification Engine:  responsible for issuing notifications for the triggered alarms which, under the scope of this project, are published in to a Kafka message bus following the Raw Aggregation Data Model format through a plugin specificaly designed for this purpose.
 
-* *Monitoring Catalog* - Stores the aggregation and threshold rules to be enforced on the batch/real-time aggregation and threshold engines.
+* **Monitoring Catalog** - Stores the aggregation and threshold rules to be enforced on the batch/real-time aggregation and threshold engines.
 
 * [Raw Data Loader](https://github.com/Selfnet-5G/Raw-Data-Loader) - Consumes the data records that are published into a Kafka message bus and transforms them in such a way that they can be inserted into a Cassandra DB.
 
